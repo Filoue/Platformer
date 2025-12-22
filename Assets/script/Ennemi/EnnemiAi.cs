@@ -7,7 +7,6 @@ public class EnnemiAi : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private Transform player;
     [SerializeField] private Transform ennemiZones;
-    [SerializeField] private EnnemiZone ennemiZone;
     [SerializeField] private float speed;
     [SerializeField] private float stoppingDistance = 1.5f;
     
@@ -41,19 +40,6 @@ public class EnnemiAi : MonoBehaviour
                 transform.Translate(direction * speed * Time.deltaTime);
             }
         } 
-        
-        if (!ennemiZone.ennemiInZone)
-        {
-            Debug.Log("in");
-            float distanceToZone = Vector2.Distance(transform.position, ennemiZones.position);
-            if (distanceToZone > stoppingDistance)
-            {
-                Vector2 direction = ennemiZones.position - transform.position;
-                direction.Normalize();
-                transform.Translate(direction * speed * Time.deltaTime);
-            }
-
-        }
         
     }
 
