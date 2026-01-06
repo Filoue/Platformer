@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class CharacterController : MonoBehaviour
 {
@@ -22,11 +23,16 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private GroundChecker grdCheck;
     [SerializeField] private GroundChecker leftCheck;
     [SerializeField] private GroundChecker rightCheck;
+    [SerializeField] private PortalChecker PortalCheckerIn;
+    [SerializeField] private PortalChecker PortalCheckerOut;
+    
+    
     private float time;
     private bool canMove;
     private bool isHit;
     private float _jumpInput;
     private float _moveInput;
+    private bool _portal;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -47,6 +53,25 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (PortalCheckerIn.IsPortal)
+        {
+            _portal = true;
+        }
+        if (PortalCheckerOut.IsPortal)
+        {
+            _portal = false;
+        }
+        
+        if (_portal)
+        {
+            rb.gravityScale = -1;
+            rb.rotation = 180;
+        }
+        else
+        {
+            rb.gravityScale = 1;
+            rb.rotation = 0;
+        }
         if (rb.linearVelocityY >= maxVelocity)
         {
             rb.linearVelocityY = maxVelocity;
@@ -56,7 +81,7 @@ public class CharacterController : MonoBehaviour
         if (canMove)
         {
             rb.linearVelocityX = _moveInput * speed;
-            if (Mathf.Abs(rb.linearVelocityX) > 0)
+            if (Mathf.Abs(rb.linearVelocityX) > 0.1)
             { 
                 StartCoroutine(Footstep_co());
             }
@@ -65,6 +90,8 @@ public class CharacterController : MonoBehaviour
                 StopCoroutine(Footstep_co());
             }
         }
+
+        
         sr.flipX = rb.linearVelocityX < 0;
         anim.SetFloat("speed", Mathf.Abs(rb.linearVelocityX));
 
@@ -85,7 +112,15 @@ public class CharacterController : MonoBehaviour
     {
         if (grdCheck.isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (rb.gravityScale <= -0.1)
+            {
+                rb.AddForce(Vector2.down * jumpForce, ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
+            
             anim.SetBool("isJumping", true);
         }
         else
