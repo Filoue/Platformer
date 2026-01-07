@@ -178,7 +178,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -205,13 +205,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0a8385180540945bfa626006c086fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   jumpForce: 5
   hitForce: 5
   WallForce: 10
   anim: {fileID: 1631227350398707155}
   MaxTime: 0.7
-  maxVelocity: 10
+  maxVelocity: 5
   audioSource: {fileID: 7449672209924901244}
   audioClip:
   - {fileID: 8300000, guid: 82b9e7907a6c3154b86a53c1be46ff71, type: 3}

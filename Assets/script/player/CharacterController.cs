@@ -91,8 +91,8 @@ public class CharacterController : MonoBehaviour
             }
         }
 
-        
         sr.flipX = rb.linearVelocityX < 0;
+        
         anim.SetFloat("speed", Mathf.Abs(rb.linearVelocityX));
 
         if (time <= 0)
@@ -112,7 +112,8 @@ public class CharacterController : MonoBehaviour
     {
         if (grdCheck.isGrounded)
         {
-            if (rb.gravityScale <= -0.1)
+            
+            if (_portal)
             {
                 rb.AddForce(Vector2.down * jumpForce, ForceMode2D.Impulse);
             }
@@ -130,18 +131,37 @@ public class CharacterController : MonoBehaviour
 
         if (!grdCheck.isGrounded)
         {
-            if (leftCheck.isGrounded)
+            if (_portal)
             {
-                rb.AddForce(new Vector2(1,1).normalized * WallForce, ForceMode2D.Impulse);
-                canMove = false;
-                time = MaxTime;
+                if (leftCheck.isGrounded)
+                {
+                    rb.AddForce(new Vector2(-1,-1).normalized * WallForce, ForceMode2D.Impulse);
+                    canMove = false;
+                    time = MaxTime;
+                }
+                if (rightCheck.isGrounded)
+                {
+                    rb.AddForce(new Vector2(1,-1).normalized * WallForce, ForceMode2D.Impulse);
+                    canMove = false;
+                    time = MaxTime;
+                }
             }
-            if (rightCheck.isGrounded)
+            else
             {
-                rb.AddForce(new Vector2(-1,1).normalized * WallForce, ForceMode2D.Impulse);
-                canMove = false;
-                time = MaxTime;
+                if (leftCheck.isGrounded)
+                {
+                    rb.AddForce(new Vector2(1,1).normalized * WallForce, ForceMode2D.Impulse);
+                    canMove = false;
+                    time = MaxTime;
+                }
+                if (rightCheck.isGrounded)
+                {
+                    rb.AddForce(new Vector2(-1,1).normalized * WallForce, ForceMode2D.Impulse);
+                    canMove = false;
+                    time = MaxTime;
+                }
             }
+
         }
         
     }
