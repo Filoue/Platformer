@@ -41,4 +41,14 @@ public class UIFunction : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void LevelTwo()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void LevelThree()
+    {
+        SceneManager.LoadScene(3);
+    }
 }

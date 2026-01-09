@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 292913530}
   - component: {fileID: 292913533}
   - component: {fileID: 292913534}
+  - component: {fileID: 292913535}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -433,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowDebugText: 0
+  ShowDebugText: 1
   ShowCameraFrustum: 1
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
@@ -453,6 +454,15 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!45 &292913535
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292913529}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 42eaf2c5dbb13dc498f15df5a5b05fda, type: 2}
 --- !u!1001 &432453274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1138,50 +1148,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2229269185762483570, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: levelScore
-      value: 
-      objectReference: {fileID: 11400000, guid: 8441c11f2d86d884c8029504e11b933b, type: 2}
-    - target: {fileID: 2229269185762483570, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: playerScore
-      value: 
-      objectReference: {fileID: 1496851191}
-    - target: {fileID: 2229269185762483570, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: playerScorelvl1
-      value: 
-      objectReference: {fileID: 11400000, guid: 81bf2549876397047812f68195568190, type: 2}
-    - target: {fileID: 2229269185762483570, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: playerScorelvl2
-      value: 
-      objectReference: {fileID: 11400000, guid: b406410023e8ee048aaeb5b6d64b9138, type: 2}
-    - target: {fileID: 2229269185762483570, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: playerScorelvl3
-      value: 
-      objectReference: {fileID: 11400000, guid: 07a6e9430ca2b5b4d8cdc92a87d16f94, type: 2}
     - target: {fileID: 2789242270469627587, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
       propertyPath: m_Name
       value: == Player
       objectReference: {fileID: 0}
     - target: {fileID: 3115561894513455398, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: MaxTime
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115561894513455398, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: WallForce
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115561894513455398, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 749068803}
-    - target: {fileID: 4852279548577700579, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852279548577700579, guid: 189c2169b4d273b42a8007546f05a4c9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.26
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

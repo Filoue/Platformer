@@ -4,7 +4,6 @@ public class AddPlayerScore : MonoBehaviour
 {
     [Header("Debug")]
     [SerializeField] private SO_Score levelScore;
-    [SerializeField] private PlayerScore playerScore;
     
     public void OnTriggerEnter2D(Collider2D other)
     {

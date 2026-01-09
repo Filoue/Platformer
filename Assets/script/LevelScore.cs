@@ -12,8 +12,8 @@ public class LevelScore : MonoBehaviour
 
     private void FixedUpdate()
     {
-            
         if (_value.Value >= 3) _value.Value = 3;
+        
         
         foreach (Transform child in this.transform)
         {

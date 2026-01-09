@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 4620410564405321387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.62, y: -0.63, z: 0}
+  m_LocalPosition: {x: -3.95, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -208,9 +208,9 @@ MonoBehaviour:
   speed: 5
   jumpForce: 5
   hitForce: 5
-  WallForce: 10
+  WallForce: 8
   anim: {fileID: 1631227350398707155}
-  MaxTime: 0.7
+  MaxTime: 0.6
   maxVelocity: 5
   audioSource: {fileID: 7449672209924901244}
   audioClip:
@@ -240,6 +240,7 @@ MonoBehaviour:
   rightCheck: {fileID: 981221166838235575}
   PortalCheckerIn: {fileID: 7277792905362775}
   PortalCheckerOut: {fileID: 5809855017991230235}
+  respawnPoint: {fileID: 0}
 --- !u!114 &5854784672231581522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +425,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   playerScored: 0
+  playerScorelvl1: {fileID: 11400000, guid: 81bf2549876397047812f68195568190, type: 2}
+  playerScorelvl2: {fileID: 11400000, guid: b406410023e8ee048aaeb5b6d64b9138, type: 2}
+  playerScorelvl3: {fileID: 11400000, guid: 07a6e9430ca2b5b4d8cdc92a87d16f94, type: 2}
+  levelScore: {fileID: 11400000, guid: 8441c11f2d86d884c8029504e11b933b, type: 2}
+  playerScore: {fileID: 2229269185762483570}
 --- !u!1 &6580722932167126157
 GameObject:
   m_ObjectHideFlags: 0
