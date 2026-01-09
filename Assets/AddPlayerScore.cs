@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class AddPlayerScore : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Debug")]
+    [SerializeField] private SO_Score levelScore;
+    [SerializeField] private PlayerScore playerScore;
+    
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.TryGetComponent(out PlayerScore playerScore))
+        {
+            playerScore.lvl1(levelScore.Scorelvl1);
+            playerScore.lvl2(levelScore.Scorelvl2);
+            playerScore.lvl3(levelScore.Scorelvl3);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

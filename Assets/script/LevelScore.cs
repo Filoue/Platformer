@@ -1,32 +1,28 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelScore : MonoBehaviour
 {
-    public int maxScore = 3;
-    public Transform LevelUi;
-    public GameObject lvlPrefab;
-
-    public bool isAlive = true;
-
-    public int currentScore;
+   
     
-    void Awake()
-    {
-        UpdateScoreBar();
-        currentScore = 3;
-    }
+    [SerializeField] private Image _blankElements;
+    [SerializeField] private Sprite _sprite;
+    [SerializeField] private SO_intValue _value;
 
-    public void UpdateScoreBar()
+    private void FixedUpdate()
     {
-        foreach (Transform child in LevelUi)
+            
+        if (_value.Value >= 3) _value.Value = 3;
+        
+        foreach (Transform child in this.transform)
         {
             Destroy(child.gameObject);
         }
-
-        for (int i = 0; i < currentScore; i++)
+        for (int item = 0; item < _value.Value; item++)
         {
-            Instantiate(lvlPrefab, LevelUi);
+            _blankElements.sprite = _sprite;
+            Instantiate(_blankElements, this.transform);
         }
     }
-
 }

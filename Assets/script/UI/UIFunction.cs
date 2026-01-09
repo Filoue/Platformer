@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIFunction : MonoBehaviour
 {
@@ -34,5 +35,10 @@ public class UIFunction : MonoBehaviour
         MainMenu.SetActive(true);
         OptionsMenu.SetActive(false);
         PlayMenu.SetActive(false);
+    }
+
+    public void LevelOne()
+    {
+        SceneManager.LoadScene(1);
     }
 }

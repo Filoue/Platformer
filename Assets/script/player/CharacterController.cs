@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class CharacterController : MonoBehaviour
@@ -25,6 +26,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private GroundChecker rightCheck;
     [SerializeField] private PortalChecker PortalCheckerIn;
     [SerializeField] private PortalChecker PortalCheckerOut;
+
+    [Header("Debug")] [SerializeField] private GameObject respawnPoint;
     
     
     private float time;
@@ -55,6 +58,7 @@ public class CharacterController : MonoBehaviour
     {
         if (PortalCheckerIn.IsPortal)
         {
+            respawnPoint.transform.position = this.transform.position;
             _portal = true;
         }
         if (PortalCheckerOut.IsPortal)
@@ -171,6 +175,11 @@ public class CharacterController : MonoBehaviour
         if (collision.CompareTag("jumpPad"))
         {
             rb.AddForce(Vector2.up * hitForce, ForceMode2D.Impulse);
+        }
+
+        if (collision.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene("DebugUI");
         }
     }
     
